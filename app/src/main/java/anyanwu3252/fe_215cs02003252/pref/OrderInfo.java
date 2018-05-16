@@ -17,6 +17,10 @@ public class OrderInfo {
     private static final String SERVICE_SURGICAL = "surgical";
     private static final String SERVICE_LAB = "lab";
     private static final String SERVICE_REHAB = "rehab";
+    private static final String STAY = "stay";
+    private static final String MISC = "misc";
+    private static final String TOTAL = "total";
+
 
     SharedPreferences prefs;
     SharedPreferences.Editor editor;
@@ -74,12 +78,42 @@ public class OrderInfo {
     }
 
 
+    public void setStayCharges(Float stayCharges){
+        editor.putFloat(STAY, stayCharges);
+        editor.apply();
+    }
+
+    public void setMiscCharges(Float miscCharges){
+        editor.putFloat(MISC, miscCharges);
+        editor.apply();
+    }
+
+
+    public void setTotalCharges(Float totalCharges){
+        editor.putFloat(TOTAL, totalCharges);
+        editor.apply();
+    }
+
+
+
     public void clearUserPreference(){
         editor.clear();
         editor.commit();
     }
 
     // getting data from the shared preference
+
+    public float getStayCharge(){
+        return prefs.getFloat(STAY, 0);
+    }
+
+    public float getMiscCharge(){
+        return prefs.getFloat(MISC, 0);
+    }
+
+    public float getTotalCharge(){
+        return prefs.getFloat(TOTAL, 0);
+    }
 
     public int getServiceDays() {
         return prefs.getInt(SERVICE_DAYS, 0);

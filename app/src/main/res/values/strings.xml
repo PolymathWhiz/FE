@@ -25,4 +25,9 @@
     <string name="calculate">Calculate</string>
     <string name="clear">Clear</string>
     <string name="send">Send</string>
+
+    <string name="invoice_address">Valley View University</string>
+    <string name="total_charge">Total Charges</string>
+    <string name="misc_charge">Misc Charges</string>
+    <string name="stay_charge">Stay Charges</string>
 </resources>

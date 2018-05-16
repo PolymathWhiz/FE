@@ -1,5 +1,6 @@
-package anyanwu3252.fe_215cs02003252;
+package anyanwu3252.fe_215cs02003252.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
@@ -7,7 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
+import anyanwu3252.fe_215cs02003252.R;
 import anyanwu3252.fe_215cs02003252.pref.OrderInfo;
 
 /*
@@ -17,14 +20,18 @@ import anyanwu3252.fe_215cs02003252.pref.OrderInfo;
 public class MainActivity extends AppCompatActivity {
 
     private EditText editName, editAddress, editAge, editDays, editMedication, editSurgical, editLab, editRehab;
+
     private RadioButton radioMale, radioFemale;
-    private String name, address, age, days, medication, surgical, lab, rehab, male, female;
-    private int intAge, intDays;
-    private Double doubleMedication, doubleSurgical, doubleLab, doubleRehab;
+
+    private String name, address, age, days, medication, surgical, lab, rehab, gender;
 
     private AppCompatButton btnClear, btnCalculate;
 
     private OrderInfo orderInfo;
+
+    private final int AMOUNT = 500;
+
+    private Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +58,29 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (validate()){
-                    // do something
+
+                    if (radioMale.isChecked()){
+                        gender = "Male";
+                    } else gender = "Female";
+
+                    // writing to sharedpreference
+                    orderInfo.setAddress(address);
+                    orderInfo.setAge(Integer.parseInt(age));
+                    orderInfo.setName(name);
+                    orderInfo.setUserGender(gender);
+                    orderInfo.setServiceDays(Integer.parseInt(days));
+                    orderInfo.setServiceLab(Float.valueOf(lab));
+                    orderInfo.setServiceMedication(Float.valueOf(medication));
+                    orderInfo.setServiceRehab(Float.valueOf(rehab));
+                    orderInfo.setServiceSurgical(Float.valueOf(surgical));
+
+                    orderInfo.setStayCharges(calcStayCharges());
+                    orderInfo.setMiscCharges(calcMiscCharges());
+                    orderInfo.setTotalCharges(totalCharges());
+
+                    onSuccess();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Could not process information", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -73,6 +102,16 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+    public void onSuccess(){
+        i = new Intent(this, SummaryActivity.class);
+        startActivity(i);
+    }
+
+
+    /*
+        RETURNS: true if isValid
+     */
     public boolean validate(){
         boolean isValid = true;
 
@@ -84,8 +123,6 @@ public class MainActivity extends AppCompatActivity {
         surgical = editSurgical.getText().toString().trim();
         lab = editLab.getText().toString().trim();
         rehab = editRehab.getText().toString().trim();
-        male = radioMale.getText().toString().trim();
-        female = radioFemale.getText().toString().trim();
 
         if (name.isEmpty()){
             isValid = false;
@@ -132,13 +169,33 @@ public class MainActivity extends AppCompatActivity {
             editRehab.setError("Field cannot be empty");
         }else editRehab.setError(null);
 
-        if (male.isEmpty() || female.isEmpty()){
-            isValid = false;
-            radioFemale.setError("Field cannot be empty");
-        }else radioFemale.setError(null);
-
-
-
         return isValid;
     }
+
+
+    public float calcStayCharges(){
+        float baseCharge;
+
+        baseCharge = AMOUNT * Integer.parseInt(days);
+
+        return baseCharge;
+    }
+
+    public float calcMiscCharges(){
+        float miscCharges;
+
+        miscCharges = Float.parseFloat(medication + surgical + lab + rehab);
+
+        return miscCharges;
+    }
+
+    public float totalCharges(){
+        float totalCharges;
+
+        totalCharges = calcMiscCharges() + calcMiscCharges();
+
+        return totalCharges;
+    }
+
+
 }
