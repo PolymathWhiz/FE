@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- ANYANWU MIRACLE - 215CS02003252 -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:clipToPadding="false"
+        android:padding="@dimen/spacing_large"
+        android:scrollbars="none"
+        android:scrollingCache="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title_section"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_middle" />
+
+
+            <EditText
+                android:id="@+id/editName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/name" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_middle" />
+
+            <EditText
+                android:id="@+id/editAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/address" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_middle" />
+
+
+            <EditText
+                android:id="@+id/editAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/age"
+                android:inputType="number" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_middle" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_middle"
+                android:layout_marginTop="@dimen/spacing_middle"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/spacing_medium"
+                    android:paddingRight="@dimen/spacing_medium"
+                    android:text="@string/gender"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <RadioGroup
+                    android:id="@+id/radio_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:id="@+id/radio_female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/female"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                    <View
+                        android:layout_width="@dimen/spacing_mlarge"
+                        android:layout_height="0dp" />
+
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:id="@+id/radio_male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/male"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                </RadioGroup>
+
+                <!-- Services -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_mlarge"
+                    android:text="@string/services"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_middle" />
+
+                <EditText
+                    android:id="@+id/editDays"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/days"
+                    android:inputType="number" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_middle" />
+
+
+                <EditText
+                    android:id="@+id/editMedication"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/medication"
+                    android:inputType="numberDecimal" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_middle" />
+
+
+                <EditText
+                    android:id="@+id/editSurgical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/surgical"
+                    android:inputType="numberDecimal" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_middle" />
+
+
+                <EditText
+                    android:id="@+id/editLab"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/lab"
+                    android:inputType="numberDecimal" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_middle" />
+
+
+                <EditText
+                    android:id="@+id/editRehab"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/rehab"
+                    android:inputType="numberDecimal" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_middle" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_mxlarge" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btnCalculate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/calculate"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="@android:color/white"
+                android:padding="@dimen/spacing_mlarge"/>
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btnClear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/clear"
+                android:layout_marginTop="@dimen/spacing_mlarge"
+                android:background="@color/red"
+                android:textColor="@android:color/white"
+                android:padding="@dimen/spacing_mlarge"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_mxlarge" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>
